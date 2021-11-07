@@ -1,0 +1,285 @@
+
+ADC_test.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  00000214  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000001a0  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000001  00800100  00800100  00000214  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000214  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000244  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000028  00000000  00000000  00000284  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   000007b0  00000000  00000000  000002ac  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000006ff  00000000  00000000  00000a5c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000002c2  00000000  00000000  0000115b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000050  00000000  00000000  00001420  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000003a2  00000000  00000000  00001470  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000056  00000000  00000000  00001812  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000018  00000000  00000000  00001868  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__ctors_end>
+   4:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+   8:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+   c:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  10:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  14:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  18:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  1c:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  20:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  24:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  28:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  2c:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  30:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  34:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  38:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  3c:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  40:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  44:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  48:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  4c:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  50:	0c 94 b5 00 	jmp	0x16a	; 0x16a <__vector_20>
+  54:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  58:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  5c:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  60:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  64:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  68:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  6c:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  70:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  74:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  78:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+
+0000007c <__ctors_end>:
+  7c:	11 24       	eor	r1, r1
+  7e:	1f be       	out	0x3f, r1	; 63
+  80:	cf ef       	ldi	r28, 0xFF	; 255
+  82:	d8 e0       	ldi	r29, 0x08	; 8
+  84:	de bf       	out	0x3e, r29	; 62
+  86:	cd bf       	out	0x3d, r28	; 61
+
+00000088 <__do_clear_bss>:
+  88:	21 e0       	ldi	r18, 0x01	; 1
+  8a:	a0 e0       	ldi	r26, 0x00	; 0
+  8c:	b1 e0       	ldi	r27, 0x01	; 1
+  8e:	01 c0       	rjmp	.+2      	; 0x92 <.do_clear_bss_start>
+
+00000090 <.do_clear_bss_loop>:
+  90:	1d 92       	st	X+, r1
+
+00000092 <.do_clear_bss_start>:
+  92:	a1 30       	cpi	r26, 0x01	; 1
+  94:	b2 07       	cpc	r27, r18
+  96:	e1 f7       	brne	.-8      	; 0x90 <.do_clear_bss_loop>
+  98:	0e 94 52 00 	call	0xa4	; 0xa4 <main>
+  9c:	0c 94 ce 00 	jmp	0x19c	; 0x19c <_exit>
+
+000000a0 <__bad_interrupt>:
+  a0:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a4 <main>:
+
+int main(void)
+{
+	// -- USART0 SETUP --//
+	//	set RX(PD0) as input, TX(PD1) as output and high
+	DDRD &= ~(1 << DDRD0);
+  a4:	8a b1       	in	r24, 0x0a	; 10
+  a6:	8e 7f       	andi	r24, 0xFE	; 254
+  a8:	8a b9       	out	0x0a, r24	; 10
+	DDRD |= (1 << DDRD1);
+  aa:	8a b1       	in	r24, 0x0a	; 10
+  ac:	82 60       	ori	r24, 0x02	; 2
+  ae:	8a b9       	out	0x0a, r24	; 10
+	PORTD |= (1 << PORTD1);
+  b0:	8b b1       	in	r24, 0x0b	; 11
+  b2:	82 60       	ori	r24, 0x02	; 2
+  b4:	8b b9       	out	0x0b, r24	; 11
+	//	normal speed
+	UCSR0A &= ~(1 << U2X0);
+  b6:	e0 ec       	ldi	r30, 0xC0	; 192
+  b8:	f0 e0       	ldi	r31, 0x00	; 0
+  ba:	80 81       	ld	r24, Z
+  bc:	8d 7f       	andi	r24, 0xFD	; 253
+  be:	80 83       	st	Z, r24
+	//	set baud rate to 9600 (23 for the register)
+	UBRR0 = 23;
+  c0:	87 e1       	ldi	r24, 0x17	; 23
+  c2:	90 e0       	ldi	r25, 0x00	; 0
+  c4:	90 93 c5 00 	sts	0x00C5, r25	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7f80c5>
+  c8:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7f80c4>
+	//	mode select: asynchronous USART
+	UCSR0C &= ~((1 << UMSEL00) | (1 << UMSEL01));
+  cc:	e2 ec       	ldi	r30, 0xC2	; 194
+  ce:	f0 e0       	ldi	r31, 0x00	; 0
+  d0:	80 81       	ld	r24, Z
+  d2:	8f 73       	andi	r24, 0x3F	; 63
+  d4:	80 83       	st	Z, r24
+	//	No parity
+	UCSR0C &= ~((1 << UPM00) | (1 << UPM01));
+  d6:	80 81       	ld	r24, Z
+  d8:	8f 7c       	andi	r24, 0xCF	; 207
+  da:	80 83       	st	Z, r24
+	//	1 stop bit
+	UCSR0C &= ~(1 << USBS0);
+  dc:	80 81       	ld	r24, Z
+  de:	87 7f       	andi	r24, 0xF7	; 247
+  e0:	80 83       	st	Z, r24
+	//	8 databits
+	UCSR0B &= ~(1 << UCSZ02);
+  e2:	a1 ec       	ldi	r26, 0xC1	; 193
+  e4:	b0 e0       	ldi	r27, 0x00	; 0
+  e6:	8c 91       	ld	r24, X
+  e8:	8b 7f       	andi	r24, 0xFB	; 251
+  ea:	8c 93       	st	X, r24
+	UCSR0C |=((1 << UCSZ00) | (1 << UCSZ01));
+  ec:	80 81       	ld	r24, Z
+  ee:	86 60       	ori	r24, 0x06	; 6
+  f0:	80 83       	st	Z, r24
+	//	we want to trigger an interrupt when the recv buffer is full
+	UCSR0B |= (1 << RXCIE0);
+  f2:	8c 91       	ld	r24, X
+  f4:	80 68       	ori	r24, 0x80	; 128
+  f6:	8c 93       	st	X, r24
+	//	enable receive and transmit port
+	UCSR0B |= ((1 << RXEN0) | (1 << TXEN0));
+  f8:	8c 91       	ld	r24, X
+  fa:	88 61       	ori	r24, 0x18	; 24
+  fc:	8c 93       	st	X, r24
+	OCR0A = 199;
+	*/
+	
+	//	-- ADC SETUP -- //
+    //	use AVCC external voltage (VCC will be attached to it)
+	ADMUX &= ~((1 << REFS1));
+  fe:	ec e7       	ldi	r30, 0x7C	; 124
+ 100:	f0 e0       	ldi	r31, 0x00	; 0
+ 102:	80 81       	ld	r24, Z
+ 104:	8f 77       	andi	r24, 0x7F	; 127
+ 106:	80 83       	st	Z, r24
+	ADMUX |= (1 << REFS0);
+ 108:	80 81       	ld	r24, Z
+ 10a:	80 64       	ori	r24, 0x40	; 64
+ 10c:	80 83       	st	Z, r24
+	//	Left-adjusted result
+	ADMUX |= (1 << ADLAR);
+ 10e:	80 81       	ld	r24, Z
+ 110:	80 62       	ori	r24, 0x20	; 32
+ 112:	80 83       	st	Z, r24
+	//	use single ended input ADC0
+	ADMUX &= ~((1 << MUX0) | (1 << MUX1) | (1 << MUX2) | (1 << MUX3) | (1 << MUX4));
+ 114:	80 81       	ld	r24, Z
+ 116:	80 7e       	andi	r24, 0xE0	; 224
+ 118:	80 83       	st	Z, r24
+	//	Prescaler for the speed of the conversion. 
+	ADCSRA |= ((1 << ADPS0) | (1 << ADPS2));
+ 11a:	ea e7       	ldi	r30, 0x7A	; 122
+ 11c:	f0 e0       	ldi	r31, 0x00	; 0
+ 11e:	80 81       	ld	r24, Z
+ 120:	85 60       	ori	r24, 0x05	; 5
+ 122:	80 83       	st	Z, r24
+	ADCSRA &= ~(1 << ADPS1);
+ 124:	80 81       	ld	r24, Z
+ 126:	8d 7f       	andi	r24, 0xFD	; 253
+ 128:	80 83       	st	Z, r24
+	//	enable freerunning
+	ADCSRA &= ~(1 << ADATE);
+ 12a:	80 81       	ld	r24, Z
+ 12c:	8f 7d       	andi	r24, 0xDF	; 223
+ 12e:	80 83       	st	Z, r24
+	//	disable the input buffer on the pin we want to use for ADC (pina0)
+	DIDR0 |= (1 << ADC0D);
+ 130:	ae e7       	ldi	r26, 0x7E	; 126
+ 132:	b0 e0       	ldi	r27, 0x00	; 0
+ 134:	8c 91       	ld	r24, X
+ 136:	81 60       	ori	r24, 0x01	; 1
+ 138:	8c 93       	st	X, r24
+	//	enable adc
+	ADCSRA |= (1 << ADEN);
+ 13a:	80 81       	ld	r24, Z
+ 13c:	80 68       	ori	r24, 0x80	; 128
+ 13e:	80 83       	st	Z, r24
+
+
+	UDR0 = 1;
+ 140:	81 e0       	ldi	r24, 0x01	; 1
+ 142:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7f80c6>
+
+	//	enable GIE
+	sei();
+ 146:	78 94       	sei
+	
+	while (1) 
+    {
+		if(ADCSRA & (1 << ADSC)){
+ 148:	80 91 7a 00 	lds	r24, 0x007A	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+ 14c:	86 ff       	sbrs	r24, 6
+ 14e:	fc cf       	rjmp	.-8      	; 0x148 <main+0xa4>
+			while(ADCSRA & (1 << ADSC));
+ 150:	80 91 7a 00 	lds	r24, 0x007A	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+ 154:	86 fd       	sbrc	r24, 6
+ 156:	fc cf       	rjmp	.-8      	; 0x150 <main+0xac>
+			while(!(UCSR0A & (1 << UDRE0)));
+ 158:	80 91 c0 00 	lds	r24, 0x00C0	; 0x8000c0 <__TEXT_REGION_LENGTH__+0x7f80c0>
+ 15c:	85 ff       	sbrs	r24, 5
+ 15e:	fc cf       	rjmp	.-8      	; 0x158 <main+0xb4>
+			UDR0 = ADCH;
+ 160:	80 91 79 00 	lds	r24, 0x0079	; 0x800079 <__TEXT_REGION_LENGTH__+0x7f8079>
+ 164:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7f80c6>
+ 168:	ef cf       	rjmp	.-34     	; 0x148 <main+0xa4>
+
+0000016a <__vector_20>:
+    }
+}
+
+
+
+ISR(USART0_RX_vect){
+ 16a:	1f 92       	push	r1
+ 16c:	0f 92       	push	r0
+ 16e:	0f b6       	in	r0, 0x3f	; 63
+ 170:	0f 92       	push	r0
+ 172:	11 24       	eor	r1, r1
+ 174:	8f 93       	push	r24
+ 176:	ef 93       	push	r30
+ 178:	ff 93       	push	r31
+	
+	erase = UDR0;
+ 17a:	80 91 c6 00 	lds	r24, 0x00C6	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7f80c6>
+ 17e:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__DATA_REGION_ORIGIN__>
+	ADCSRA |= (1 << ADSC);
+ 182:	ea e7       	ldi	r30, 0x7A	; 122
+ 184:	f0 e0       	ldi	r31, 0x00	; 0
+ 186:	80 81       	ld	r24, Z
+ 188:	80 64       	ori	r24, 0x40	; 64
+ 18a:	80 83       	st	Z, r24
+}
+ 18c:	ff 91       	pop	r31
+ 18e:	ef 91       	pop	r30
+ 190:	8f 91       	pop	r24
+ 192:	0f 90       	pop	r0
+ 194:	0f be       	out	0x3f, r0	; 63
+ 196:	0f 90       	pop	r0
+ 198:	1f 90       	pop	r1
+ 19a:	18 95       	reti
+
+0000019c <_exit>:
+ 19c:	f8 94       	cli
+
+0000019e <__stop_program>:
+ 19e:	ff cf       	rjmp	.-2      	; 0x19e <__stop_program>
