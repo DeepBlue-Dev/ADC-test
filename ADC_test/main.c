@@ -74,10 +74,14 @@ int main(void)
 	
 	while (1) 
     {
-		if(ADCSRA & (1 << ADSC)){
-			while(ADCSRA & (1 << ADSC));
-			while(!(UCSR0A & (1 << UDRE0)));
+		if(ADCSRA & (1 << ADSC)){	//	check if ADC is enabled
+			while(ADCSRA & (1 << ADSC));	//	wait for the result 
+			while(!(UCSR0A & (1 << UDRE0)));	//	wait untill input buffer is empty
 			UDR0 = ADCH;
+			while(!(UCSR0A & (1 << UDRE0)));
+			UDR0 = ADCL;
+			while(!(UCSR0A & (1 << UDRE0)));
+			UDR0 = '\n';
 			
 		}
 		
@@ -88,7 +92,7 @@ int main(void)
 
 ISR(USART0_RX_vect){
 	
-	erase = UDR0;
+	erase = UDR0;	//	empty UDR0 register
 	ADCSRA |= (1 << ADSC);
 }
 
