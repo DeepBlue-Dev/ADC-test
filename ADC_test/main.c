@@ -65,21 +65,20 @@ int main(void)
 	DIDR0 |= (1 << ADC0D);
 	//	enable adc
 	ADCSRA |= (1 << ADEN);
-
-
 	UDR0 = 1;
 
 	//	enable GIE
 	sei();
-	
+	unsigned short result = 0;
 	while (1) 
     {
 		if(ADCSRA & (1 << ADSC)){	//	check if ADC is enabled
 			while(ADCSRA & (1 << ADSC));	//	wait for the result 
-			while(!(UCSR0A & (1 << UDRE0)));	//	wait untill input buffer is empty
-			UDR0 = ADCH;
+			result = (ADCH << 2) | ADCL;
+			while(!(UCSR0A & (1 << UDRE0)));	//	wait until input buffer is empty
+			UDR0 = result & 0x0300;
 			while(!(UCSR0A & (1 << UDRE0)));
-			UDR0 = ADCL;
+			UDR0 = result & 0x00FF;
 			while(!(UCSR0A & (1 << UDRE0)));
 			UDR0 = '\n';
 			
@@ -87,8 +86,6 @@ int main(void)
 		
     }
 }
-
-
 
 ISR(USART0_RX_vect){
 	
